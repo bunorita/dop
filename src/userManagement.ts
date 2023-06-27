@@ -1,16 +1,13 @@
-import { userManagementData } from './data';
+import { userManagement } from './data';
 
-export function isLibrarian(data: userManagementData, userId: number): boolean {
+export function isLibrarian(data: userManagement, userId: number): boolean {
   return true;
 }
 
-export function isSuperMember(
-  data: userManagementData,
-  userId: number
-): boolean {
+export function isSuperMember(data: userManagement, userId: number): boolean {
   return true;
 }
 
-export function isVIPMember(data: userManagementData, userId: number): boolean {
+export function isVIPMember(data: userManagement, userId: number): boolean {
   return true;
 }
