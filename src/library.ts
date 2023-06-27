@@ -3,7 +3,16 @@ import { isLibrarian, isSuperMember, isVIPMember } from './userManagement';
 import {
   getBookLendings as catalogGetBookLendings,
   addBookItem as catalogAddBookItem,
+  searchBooksByTitle,
 } from './catalog';
+
+export function searchBooksByTitleJSON(
+  library: Library,
+  query: string
+): string {
+  const results = searchBooksByTitle(library.catalog, query);
+  return JSON.stringify(results, null, 2);
+}
 
 export function getBookLendings(
   data: Library,
