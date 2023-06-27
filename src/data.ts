@@ -1,15 +1,15 @@
-export type libraryData = {
+export type Library = {
   name: string;
   address: string;
-  catalog: catalog;
+  catalog: Catalog;
   userManagement: userManagement;
 };
 
-export type catalog = {
-  booksByIsbn: isbn[];
-  authorsById: authorId[];
+export type Catalog = {
+  booksByIsbn: { [key: isbn]: Book };
+  authorsById: { [key: authorId]: Author };
 };
-type book = {
+export type Book = {
   isbn: isbn;
   title: string;
   publicationYear: number;
@@ -17,7 +17,7 @@ type book = {
   bookItems: bookItem[];
 };
 type isbn = string;
-type author = {
+export type Author = {
   id: authorId;
   name: string;
   bookIsbns: isbn[];

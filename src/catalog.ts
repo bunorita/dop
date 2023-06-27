@@ -1,12 +1,12 @@
-import { bookItemInfo, bookLending, catalog } from './data';
+import { bookItemInfo, bookLending, Catalog } from './data';
 
 export function getBookLendings(
-  data: catalog,
+  data: Catalog,
   memberId: number
 ): bookLending[] {
   return [];
 }
 
-export function addBookItem(data: catalog, itemInfo: bookItemInfo): void {
+export function addBookItem(data: Catalog, itemInfo: bookItemInfo): void {
   return;
 }

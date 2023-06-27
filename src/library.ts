@@ -1,4 +1,4 @@
-import { bookItemInfo, bookLending, libraryData } from './data';
+import { bookItemInfo, bookLending, Library } from './data';
 import { isLibrarian, isSuperMember, isVIPMember } from './userManagement';
 import {
   getBookLendings as catalogGetBookLendings,
@@ -6,7 +6,7 @@ import {
 } from './catalog';
 
 export function getBookLendings(
-  data: libraryData,
+  data: Library,
   userId: number,
   memberId: number
 ): bookLending[] {
@@ -20,7 +20,7 @@ export function getBookLendings(
 }
 
 export function addBookItem(
-  data: libraryData,
+  data: Library,
   userId: number,
   itemInfo: bookItemInfo
 ): void {
