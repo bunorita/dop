@@ -57,4 +57,17 @@ getBookLendings(library, 1, 1);
 addBookItem(library.catalog, {});
 
 console.log(JSON.stringify(library, null, 2));
+console.log(library.catalog.booksByIsbn['978-1779501127'].title);
+console.log(get(library.catalog, ['booksByIsbn', '978-1779501127', 'title']));
+console.log(
+  get(library, ['catalog', 'authorsById', 'alan-moore', 'bookIsbns', '0'])
+);
 console.log('done');
+
+function get(obj: object, path: string[]) {
+  let res: any = obj;
+  for (let key of path) {
+    res = res[key];
+  }
+  return res;
+}
