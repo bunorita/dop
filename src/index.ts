@@ -49,11 +49,31 @@ const library: Library = {
   address: '476 Fifth Avenue, Manhattan, New York City, 10018, United States',
   catalog: catalog,
   userManagement: {
-    librariansByEmail: [],
-    membersByEmail: [],
+    librariansByEmail: {
+      'franck@gmail.com': {
+        email: 'franck@gmail.com',
+        encryptedPassword: 'bXlwYXNzd29yZA==',
+      },
+    },
+    membersByEmail: {
+      'samantha@gmail.com': {
+        email: 'samantha@gmail.com',
+        encryptedPassword: 'c2VjcmV0',
+        isVIP: false,
+        isSuper: true,
+        isBlocked: false,
+        bookLendings: [
+          {
+            bookItemId: 'book-item-1',
+            bookIsbn: '978-17795011227',
+            lendingDate: '2020-04-23',
+          },
+        ],
+      },
+    },
   },
 };
-getBookLendings(library, 1, 1);
+console.log(getBookLendings(library, 'samantha@gmail.com', 1));
 addBookItem(library.catalog, {});
 
 console.log(get(library.catalog, ['booksByIsbn', '978-1779501127', 'title']));

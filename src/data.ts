@@ -38,13 +38,15 @@ export type bookLending = {
 export type bookItemInfo = {};
 
 export type userManagement = {
-  librariansByEmail: email[];
-  membersByEmail: email[];
+  librariansByEmail: { [key: email]: librarian };
+  membersByEmail: { [key: email]: member };
 };
 type librarian = { email: email; encryptedPassword: string };
 type member = {
   email: email;
   encryptedPassword: string;
+  isVIP: boolean;
+  isSuper: boolean;
   isBlocked: boolean;
   bookLendings: bookLending[];
 };

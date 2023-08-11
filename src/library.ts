@@ -16,12 +16,12 @@ export function searchBooksByTitleJSON(
 
 export function getBookLendings(
   data: Library,
-  userId: number,
+  email: string,
   memberId: number
 ): bookLending[] {
   if (
-    isLibrarian(data.userManagement, userId) ||
-    isSuperMember(data.userManagement, userId)
+    isLibrarian(data.userManagement, email) ||
+    isSuperMember(data.userManagement, email)
   ) {
     return catalogGetBookLendings(data.catalog, memberId);
   }
@@ -30,12 +30,12 @@ export function getBookLendings(
 
 export function addBookItem(
   data: Library,
-  userId: number,
+  email: string,
   itemInfo: bookItemInfo
 ): void {
   if (
-    isLibrarian(data.userManagement, userId) ||
-    isVIPMember(data.userManagement, userId)
+    isLibrarian(data.userManagement, email) ||
+    isVIPMember(data.userManagement, email)
   ) {
     return catalogAddBookItem(data.catalog, itemInfo);
   }
