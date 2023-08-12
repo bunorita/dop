@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { addBookItem } from './catalog';
 import { Author, Book, Catalog, Library } from './data';
 import { getBookLendings, searchBooksByTitleJSON } from './library';
@@ -76,9 +77,9 @@ const library: Library = {
 console.log(getBookLendings(library, 'samantha@gmail.com', 1));
 addBookItem(library.catalog, {});
 
-console.log(get(library.catalog, ['booksByIsbn', '978-1779501127', 'title']));
+console.log(_.get(library.catalog, ['booksByIsbn', '978-1779501127', 'title']));
 console.log(
-  get(library, ['catalog', 'authorsById', 'alan-moore', 'bookIsbns', '0'])
+  _.get(library, ['catalog', 'authorsById', 'alan-moore', 'bookIsbns', '0'])
 );
 
 console.log(searchBooksByTitleJSON(library, 'Wat'));
