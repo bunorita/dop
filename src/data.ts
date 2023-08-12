@@ -42,7 +42,7 @@ export type userManagement = {
   membersByEmail: { [key: email]: member };
 };
 type librarian = { email: email; encryptedPassword: string };
-type member = {
+export type member = {
   email: email;
   encryptedPassword: string;
   isVIP: boolean;
