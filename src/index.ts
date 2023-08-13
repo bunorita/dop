@@ -84,6 +84,13 @@ console.log(
 
 console.log(searchBooksByTitleJSON(library, 'Wat'));
 
+let nextLibrary = set(
+  library,
+  ['catalog', 'booksByIsbn', '978-1779501127', 'publicationYear'],
+  1986
+);
+// console.log(json(nextLibrary));
+
 console.log('done');
 
 function get(obj: object, path: string[]) {
@@ -92,4 +99,20 @@ function get(obj: object, path: string[]) {
     res = res[key];
   }
   return res;
+}
+
+function set(map: any, path: string[], v: any): any {
+  let modifiedNode = v;
+  const k = path[0];
+  const restOfPath = path.slice(1);
+  if (restOfPath.length > 0) {
+    modifiedNode = set(map[k], restOfPath, v);
+  }
+  const res = { ...map }; // shallow copy
+  res[k] = modifiedNode;
+  return res;
+}
+
+function json(obj: object): string {
+  return JSON.stringify(obj, null, 2);
 }
