@@ -93,14 +93,6 @@ let nextLibrary = set(
 
 console.log('done');
 
-function get(obj: object, path: string[]) {
-  let res: any = obj;
-  for (let key of path) {
-    res = res[key];
-  }
-  return res;
-}
-
 function set(map: any, path: string[], v: any): any {
   let modifiedNode = v;
   const k = path[0];
